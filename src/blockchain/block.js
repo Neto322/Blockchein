@@ -1,20 +1,26 @@
-class Block {
-    constructor(timeStamp, previousHash, hash, data){
-        this.timeStamp = timeStamp;
+
+class Block{
+    constructor(timestamp, previousHash, hash, data){
+        this.timestamp = timestamp;
         this.previousHash = previousHash;
         this.hash = hash;
         this.data = data;
     }
-    toString(){
-        const{
-            timeStamp, previousHash, hash, data,
-    } = this;
-    return `Block -
-    timeStamp   : ${timeStamp}
-    previousHas : ${previousHash}
-    hash        : ${hash}
-    data        : ${data}
-    `;
+    static get genesis(){
+        const timestamp = (new Date(2019,0,1)).getTime();
+        return new this(timestamp, undefined, 'g3n3515-H45h', 'g3n3515-d4t4');
     }
+
+    toString(){
+        const {
+            timestamp, previousHash ,hash, data,
+        }= this;
+        return `Block - 
+        timestamp       : ${timestamp}
+        previoushash    : ${previousHash}
+        hash            : ${hash}
+        data            : ${data}`;      
+    } 
 }
+
 export default Block;
